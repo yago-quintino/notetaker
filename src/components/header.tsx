@@ -1,4 +1,5 @@
 import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 
 const Header = () => {
   const { data: sessionData } = useSession();
@@ -18,7 +19,9 @@ const Header = () => {
                 onClick={() => void signOut()}
               >
                 <div className="w-10 rounded-full">
-                  <img
+                  <Image
+                    width={40}
+                    height={40}
                     src={sessionData.user.image ?? ""}
                     alt={sessionData.user.name ?? ""}
                   />
